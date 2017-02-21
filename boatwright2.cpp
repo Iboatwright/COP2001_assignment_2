@@ -69,9 +69,7 @@ void readCoeffs(double& a, double& b, double& c){
 	cout << "Enter coefficient b: "; 
 	cin >> b;
 	cout << "Enter coefficient c: "; 
-	cin >> c;	
-		/*http://en.cppreference.com/w/cpp/io/basic_ios/exceptions
-		http://en.cppreference.com/w/cpp/string/basic_string/stol*/
+	cin >> c;
 	return; 
 }
 
@@ -81,16 +79,16 @@ double discr(double a, double b, double c){
 }
 
 // Gets the discriminant and if it's greater than or equal to 0 
-//	and a does not equal 0, computes the roots and returns true	  
+// computes the roots and returns true	  
 bool equSolver(double a, double b, double c){
 	double compDisc = discr(a, b, c);
 	
-	if (compDisc >= 0 && a){
+	if (compDisc >= 0){
 		root1 = (-b + sqrt(compDisc))/(2*a);
 		root2 = (-b - sqrt(compDisc))/(2*a);
 	}
 	
-	return (compDisc >= 0 && a!=0)?true:false; // If roots exists true is returned, else false.
+	return (compDisc >= 0)?true:false; // If roots exists true is returned, else false.
 }
 
 void outResults(double a, double b, double c,bool ind){
