@@ -30,7 +30,7 @@ double disc(double, double, double);
 
 // Prints the results to stdout.  Output is determined by the boolean
 // returned by equSolver, either real roots exist or they don't.
-void outResults(double, double, double, bool);
+void outResults(double, double, double, bool, ofstream&);
 
 
 int main(int argc, char* argv[]) {
@@ -52,7 +52,7 @@ int main(int argc, char* argv[]) {
 		flag = equSolver(a, b, c);
 		
 		// Print results to stdout.
-		outResults(a, b, c, flag);
+		outResults(a, b, c, flag, outStream);
 	}
 	return 0;
 }
@@ -91,15 +91,14 @@ bool equSolver(double a, double b, double c){
 	return (compDisc >= 0)?true:false; // If roots exists true is returned, else false.
 }
 
-void outResults(double a, double b, double c,bool ind){
-	string outString = "";
+void outResults(double a, double b, double c,bool ind, ofstream& outStream){
 	
-	if (ind){  // If the discriminant was greater than -1 prints the root values.
-		cout << "Quadratic equation with the following coefficients:" << endl;
-		cout << "a: " << a << "; b: " << b << "; c: " << c << endl;
-		cout << "has the following roots" << endl;
-		cout << "Root1: " << root1 << "; Root2: " << root2 << ";" << endl << endl;
-	} else { // If the discriminant was -1 or less prints that no real roots exist.
+	if (ind){  // If the discriminant was greater than -1 writes the root values to file.
+		outStream << "Quadratic equation with the following coefficients:" << endl;
+		outStream << "a: " << a << "; b: " << b << "; c: " << c << endl;
+		outStream << "has the following roots" << endl;
+		outStream << "Root1: " << root1 << "; Root2: " << root2 << ";" << endl << endl;
+	} else { // If the discriminant was -1 or less prints to stdout that no real roots exist.
 		cout << "Quadratic equation with the following coefficients:" << endl;
 		cout << "a: " << a << "; b: " << b << "; c: " << c << endl;
 		cout << "has no roots in the real domain." << endl << endl;
