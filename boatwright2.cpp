@@ -1,9 +1,9 @@
 /***************************************************************************
- boatwright1.cpp
+ boatwright2.cpp
  COP 2001 Assignment #1 - 2017
  Ivan Boatwright
  ijboatwright5153@eagle.fgcu.edu
- February 9, 2017
+ February 23, 2017
  
    This program solves a single quadratic equation of the form:
   		a*x^2 + b*x + c = 0
@@ -23,14 +23,14 @@ void readCoeffs(double&, double&, double&);
 // Solves for roots and stores the solutions in global variables.
 // If real roots exists returns a 1 (true) if no real roots exist 
 // 0 (false) is returned.
-bool equSolver(double, double, double);
+bool equSolver(double, double, double, double&, double&);
 
 // Calculates and returns the discriminant.
 double disc(double, double, double);
 
 // Prints the results to stdout.  Output is determined by the boolean
 // returned by equSolver, either real roots exist or they don't.
-void outResults(double, double, double, bool, ofstream&);
+void outResults(double, double, double, bool, double, double, ofstream&);
 
 
 int main(int argc, char* argv[]) {
@@ -49,10 +49,10 @@ int main(int argc, char* argv[]) {
 		readCoeffs(a, b, c);
 		
 		// Solve for the roots and determine if there are real roots.
-		flag = equSolver(a, b, c);
+		flag = equSolver(a, b, c, root1, root2);
 		
 		// Print results to stdout.
-		outResults(a, b, c, flag, outStream);
+		outResults(a, b, c, flag, root1, root2, outStream);
 	}
 	return 0;
 }
@@ -80,7 +80,7 @@ double discr(double a, double b, double c){
 
 // Gets the discriminant and if it's greater than or equal to 0 
 // computes the roots and returns true	  
-bool equSolver(double a, double b, double c){
+bool equSolver(double a, double b, double c, double& root1, double& root2){
 	double compDisc = discr(a, b, c);
 	
 	if (compDisc >= 0){
@@ -91,7 +91,8 @@ bool equSolver(double a, double b, double c){
 	return (compDisc >= 0)?true:false; // If roots exists true is returned, else false.
 }
 
-void outResults(double a, double b, double c,bool ind, ofstream& outStream){
+void outResults(double a, double b, double c,bool ind,double root1, 
+		double root2, ofstream& outStream){
 	
 	if (ind){  // If the discriminant was greater than -1 writes the root values to file.
 		outStream << "Quadratic equation with the following coefficients:" << endl;
