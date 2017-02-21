@@ -60,15 +60,16 @@ int main(int argc, char* argv[]) {
 // Operator inputs a double for use as a coefficient.
 void readCoeffs(double& a, double& b, double& c){
 	while (true){
-		cout << "Enter coefficient a: "; 
+		cout << "\nEnter coefficient a: "; 
 		cin >> a;
 		if (a) break;
 		else
-			cout << "Invalid entry. Please enter a non-zero value for a.";
+			cout << "\nInvalid entry. Please enter a non-zero "\
+			     "value for a." << endl;
 	}
-	cout << "Enter coefficient b: "; 
+	cout << "\nEnter coefficient b: "; 
 	cin >> b;
-	cout << "Enter coefficient c: "; 
+	cout << "\nEnter coefficient c: "; 
 	cin >> c;
 	return; 
 }
