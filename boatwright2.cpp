@@ -26,7 +26,7 @@ void readCoeffs(double&, double&, double&);
 bool equSolver(double, double, double, double&, double&);
 
 // Calculates and returns the discriminant.
-double disc(double, double, double);
+double discr(double, double, double);
 
 // Prints the results to stdout.  Output is determined by the boolean
 // returned by equSolver, either real roots exist or they don't.
