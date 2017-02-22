@@ -23,22 +23,22 @@ using namespace std;
 // global variables
 double root1, root2;
 
-// Reads and returns a single coefficient from stdin.
+// Reads and returns valid coefficients from stdin.
 void readCoeffs(double&, double&, double&);
 
 // Solves for roots and stores the solutions in global variables.
-// If real roots exists returns a 1 (true) if no real roots exist 
-// 0 (false) is returned.
+// If real roots exists returns true if no real roots exist 
+// false is returned.
 bool equSolver(double, double, double);
 
 // Calculates and returns the discriminant.
 double discr(double, double, double);
 
-// Prints the results to stdout.  Output is determined by the boolean
-// returned by equSolver, either real roots exist or they don't.
+// Appends real roots to the file "results.dat". Otherwise prints a message
+// to stdout that no real roots exists.
 void outResults(double, double, double, bool, ofstream&);
 
-
+// 
 int main(int argc, char* argv[]) {
 	// local variables
 	double a, b, c;	// coefficients
