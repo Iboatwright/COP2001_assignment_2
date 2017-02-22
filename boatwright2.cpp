@@ -54,6 +54,7 @@ int main(int argc, char* argv[]) {
 		// Print results to stdout.
 		outResults(a, b, c, flag, root1, root2, outStream);
 	}
+	outStream.close();
 	return 0;
 }
 
