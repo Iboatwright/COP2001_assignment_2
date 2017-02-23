@@ -17,6 +17,7 @@
 #include <iostream>
 #include <cmath>
 #include <fstream>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -39,7 +40,7 @@ void outResults(double, double, double, bool, ofstream&);
 
 int main(int argc, char* argv[]) {
   // local constants
-  const string OUTPUT_FILE = "results.dat";
+  const char* OUTPUT_FILE = "results.dat";
 
   // local variables
   double a, b, c;   // coefficients
