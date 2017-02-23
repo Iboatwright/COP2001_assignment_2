@@ -24,7 +24,7 @@ using namespace std;
 double root1, root2;
 
 // Reads and returns valid coefficients from stdin.
-void readCoeffs(double&, double&, double&, int);
+void readCoeffs(double&, double&, double&);
 
 // Calculates and returns the discriminant.
 double discr(double, double, double);
@@ -52,7 +52,7 @@ int main(int argc, char* argv[]) {
   // Each iteration calculates one quadratic equation.
   for (int i=0; i < number; i++){
     // Operator enters values for the coefficients.
-    readCoeffs(a, b, c, i);
+    readCoeffs(a, b, c);
     
     // Determines if there are real roots. If so calculates the roots. 
     flag = equSolver(a, b, c);
@@ -66,9 +66,9 @@ int main(int argc, char* argv[]) {
 
 // Operator inputs coefficients.  If zero is entered for coeffiecient a, an
 // error message is displayed requesting a new entry.
-void readCoeffs(double& a, double& b, double& c, int i){
+void readCoeffs(double& a, double& b, double& c){
   while (true){  // Runs ad-infinitum until break condition is met.
-    cout << "\n[" << i << "] Enter coefficient a: "; 
+    cout << "\nEnter coefficient a: "; 
     cin >> a;
     if (a) break;  // a must not equal zero 
     else {  // operator entered zero for coefficient a
@@ -76,9 +76,9 @@ void readCoeffs(double& a, double& b, double& c, int i){
            "value for a." << endl;
     }
   }
-  cout << "\n[" << i << "] Enter coefficient b: "; 
+  cout << "\nEnter coefficient b: "; 
   cin >> b;
-  cout << "\n[" << i << "] Enter coefficient c: "; 
+  cout << "\nEnter coefficient c: "; 
   cin >> c;
   return; 
 }
